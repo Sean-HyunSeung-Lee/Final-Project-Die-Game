@@ -1,0 +1,37 @@
+import random
+position, comp_position = 0, 0
+move, comp_move = 0, 0
+print('Welcome to the game! Your goal is to reach an exact value of 25 before the computer, to win!')
+
+Forever = False
+
+while not Forever:
+    INPUT_ = input('Type anything to roll your die!')
+    addsub = input('To add, type "add". To subtract, type "subtract.')
+    move = random.randint(1,6)
+    if addsub == 'add':
+        position += move
+        print('You move ' + str(move) + ' steps.')
+        print('Your position is ', position, ' and it is', str(25 - position), 'from the goal')
+    elif addsub == 'subtract':
+        position -= move
+        print('You move ' + str(move) + ' steps.')
+        print('Your position is ', position, ' and it is', str(25 - position), 'from the goal')
+    if position == 25:
+        print('You have reached the goal, so you win!')
+        break
+    else:
+        pass
+
+    comp_move = random.randint(1,6)
+    if comp_position >= 50:
+        comp_position -= comp_move
+    else:
+        comp_position += comp_move
+
+    print('The computers positions is ', comp_position, ' and it is', str(25 - comp_position), 'from the goal')
+    if comp_position == 25:
+        print('The computer has reached the goal and wins...')
+        break
+    else:
+        pass
